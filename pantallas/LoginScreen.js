@@ -8,11 +8,12 @@ import {
   Image,
   StatusBar,
   TouchableOpacity,
+  Linking,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
 import { useUserContext } from "../providers/UserProvider";
-import { BASE_URL, MODEL_USER } from "../helpers/constants";
+import { BASE_URL, MODEL_USER, PAGINA_DE_REGISTRO } from "../helpers/constants";
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,7 +40,7 @@ const LoginScreen = () => {
         // Convierte la respuesta a formato JSON
         const data = await response.json();
         if (data.code !== 200) {
-         //  console.error("Error en la petición:", data.code);
+          //  console.error("Error en la petición:", data.code);
           Alert.alert("Error", data.msg, [{ text: "OK" }]);
           return;
         }
@@ -58,21 +59,25 @@ const LoginScreen = () => {
 
         // Actualiza el estado con el nuevo objeto
         setUser(newData);
-      //   navigation.navigate("Inicio");
-      Alert.alert("Bienvenido " +usuario, "Sesión iniciada", [
-         {
-           text: "OK",
-           onPress: () => navigation.navigate("Inicio"),
-         },
-       ]);
+        //   navigation.navigate("Inicio");
+        Alert.alert("Bienvenido " + usuario, "Sesión iniciada", [
+          {
+            text: "OK",
+            onPress: () => navigation.navigate("Historicos"),
+          },
+        ]);
       } else {
         console.log("negativo");
         //   console.error("Error en la petición:", response.statusText);
         Alert.alert("Error", response.statusText, [{ text: "OK" }]);
       }
     } catch (error) {
-      console.error("Error", error);
-      Alert.alert("Error", error, [{ text: "OK" }]);
+      if (error instanceof TypeError && error.message.includes('Network request failed')) {
+        Alert.alert("Error de red", "No se pudo conectar al servidor. Verifica tu conexión a internet.", [{ text: "OK" }]);
+      } else {
+        console.error("Error", error);
+        Alert.alert("Error", "Ocurrió un error inesperado.", [{ text: "OK" }]);
+      }
     }
   };
   return (
@@ -110,7 +115,7 @@ const LoginScreen = () => {
           </TouchableOpacity>
         </View>
         <Text style={styles.signupText}>¿Aun no tienes una cuenta?</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => Linking.openURL(PAGINA_DE_REGISTRO)}>
           <Text style={styles.signupText}>Regístrate</Text>
         </TouchableOpacity>
       </View>

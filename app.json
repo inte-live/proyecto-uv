@@ -20,9 +20,9 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#000080"
       },
-      "package": "com.tesing.semaforomovil"
+      "package": "com.willian068.semaforomovil"
     },
     "extra": {
       "eas": {

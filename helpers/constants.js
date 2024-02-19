@@ -1,5 +1,8 @@
 export const BASE_URL = "http://192.168.0.10:3005/";
 
+//la pagina a la cual se redirige para registrarse
+export const PAGINA_DE_REGISTRO = "https://cambiar.com/";
+
 export const URL_MODULOS = "https://computacion.unl.edu.ec/";
 
 export const URL_API_MODULOS = `${URL_MODULOS}uv/api/`;
@@ -26,8 +29,8 @@ export const MODEL_USER = {
 
 const formatFecha = (date) => {
   const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const day = date.getDate().toString().padStart(2, "0");
   return `${year}-${month}-${day}`;
 };
 
@@ -50,7 +53,7 @@ export const BODY_SEMANAL = {
 export const BODY_MENSUAL = {
   fechaInicio: "2024-01-01",
   fechaFin: fechaFormateada,
-}
+};
 
 // export const AUTHORIZATION_DIA = "x-api-key: " + MODEL_USER.tokenModule;
 
