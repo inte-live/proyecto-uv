@@ -34,9 +34,9 @@ const LoginScreen = () => {
         },
         body: JSON.stringify(data),
       });
-      console.log("response", response);
+      // console.log("response", response);
       if (response.ok) {
-        console.log("positivo");
+        // console.log("positivo");
         // Convierte la respuesta a formato JSON
         const data = await response.json();
         if (data.code !== 200) {
@@ -60,16 +60,17 @@ const LoginScreen = () => {
         // Actualiza el estado con el nuevo objeto
         setUser(newData);
         //   navigation.navigate("Inicio");
-        Alert.alert("Bienvenido " + usuario, "Sesión iniciada", [
+        Alert.alert("Bienvenid@ " + usuario, "Sesión iniciada", [
           {
             text: "OK",
-            onPress: () => navigation.navigate("Historicos"),
+            // onPress: () => navigation.navigate("Historicos"),
           },
         ]);
+        navigation.navigate("Inicio");	
       } else {
-        console.log("negativo");
+        // console.log("negativo");
         //   console.error("Error en la petición:", response.statusText);
-        Alert.alert("Error", response.statusText, [{ text: "OK" }]);
+        Alert.alert("Error", "Error en la petición", [{ text: "OK" }]);
       }
     } catch (error) {
       if (error instanceof TypeError && error.message.includes('Network request failed')) {

@@ -29,7 +29,7 @@ export default function MedicionMes() {
           body: JSON.stringify(BODY_MENSUAL),
         };
         const res = await (await fetch(MEDICION_SEMANAL, fetchConfig)).json();
-        console.log("res", res);
+        // console.log("res", res);
         const labels = res.promedioMediciones.map((_, index) => `${index}`);
         const data = res.promedioMediciones
           .filter((_, index) => index % 2 === 0)
@@ -42,10 +42,11 @@ export default function MedicionMes() {
             },
           ],
         };
-        console.log("datoLocal", datoLocal);
+        // console.log("datoLocal", datoLocal);
         setSemanas(datoLocal);
       } catch (error) {
-        console.log("Error en useEffect - MedicionDia", error);
+        console.log("Error en useEffect - MedicionDia"); 
+        // console.log("Error en useEffect - MedicionDia", error); 
       }
     };
 

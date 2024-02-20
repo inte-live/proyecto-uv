@@ -1,4 +1,5 @@
-export const BASE_URL = "http://192.168.0.10:3005/";
+export const BASE_URL = "http://10.20.139.68:3005/";
+// export const BASE_URL = "http://10.20.137.18:3005/";
 
 //la pagina a la cual se redirige para registrarse
 export const PAGINA_DE_REGISTRO = "https://cambiar.com/";

@@ -16,10 +16,11 @@ export default function Modulos() {
       try {
         const data = await medidas();
         const ultimasMediciones = data.ultimasMediciones;
-        console.log(ultimasMediciones);
+        // console.log(ultimasMediciones);
         setUltimasMediciones(ultimasMediciones);
       } catch (error) {
-        console.log("Error en useEffect - Modulos", error);
+        // console.log("Error en useEffect - Modulos");
+        // console.log("Error en useEffect - Modulos", error);
       }
     };
 

@@ -14,9 +14,10 @@ export default function UVPromedio() {
         const valorPromedio = await promedio();
         const uv = valorPromedio.promedioUltimasMediciones.promedio;
         setValorUv(map_Value(uv));
-        console.log("El valor UV es: ", uv);
+        // console.log("El valor UV es: ", uv);
       } catch (error) {
-        console.log("Error en useEffect - UVPromedio", error);
+        console.log("Error en useEffect - UVPromedio");
+        // console.log("Error en useEffect - UVPromedio", error);
         // Aquí puedes agregar un manejo de errores, como mostrar un mensaje al usuario o realizar alguna acción específica.
       }
     };

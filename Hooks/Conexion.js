@@ -13,7 +13,8 @@ export const medidas = async () => {
     ).json();
     return datos;
   } catch (error) {
-    console.log("Error en la peticion - medidas", error);
+    // console.log("Error en la peticion - medidas", error);
+    console.log("Error en la peticion - medidas");
     throw error; // Lanzar el error para que pueda ser capturado por el llamador
   }
 };

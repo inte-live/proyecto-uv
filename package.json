@@ -8,7 +8,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "dev": "npm install && npm start",
-    "build": "eas login && eas build:configure && eas build -p android --profile preview"	
+    "build": "eas login && eas build:configure && eas build -p android --profile preview"
   },
   "dependencies": {
     "@expo-google-fonts/roboto": "^0.2.3",
@@ -41,7 +41,9 @@
     "react-native-web": "~0.19.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "metro-config": "^0.80.6",
+    "metro-react-native-babel-preset": "^0.77.0"
   },
   "private": true
 }

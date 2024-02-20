@@ -39,7 +39,8 @@ export default function MedicionDia() {
         // console.log("datoLocal", datoLocal);
         setDias(datoLocal);
       } catch (error) {
-        console.log("Error en useEffect - MedicionDia", error);
+        console.log("Error en useEffect - MedicionDia");
+        // console.log("Error en useEffect - MedicionDia", error);
       }
     };
 
